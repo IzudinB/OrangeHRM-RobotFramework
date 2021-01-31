@@ -25,10 +25,10 @@ ${LNK_PAY_GRADES}           id=menu_admin_viewPayGrades
 ${LNK_EMPLOYMENT_STATUS}    id=menu_admin_employmentStatus
 ${LNK_JOB_CATEGORIES}       id=menu_admin_jobCategory
 ${LNK_WORK_SHIFTS}          id=menu_admin_workShift
-${DD_ORGANIZATION}        id=menu_admin_Organization
-${LNK_LOCATIONS}          id=menu_admin_viewLocations
-${LNK_NEWS}               id=menu_news_viewNewsList
-${DD_ANNOUNCEMENTS}       id=menu_news_Announcementsv
+${DD_ORGANIZATION}          id=menu_admin_Organization
+${LNK_LOCATIONS}            id=menu_admin_viewLocations
+${LNK_NEWS}                 id=menu_news_viewNewsList
+${DD_ANNOUNCEMENTS}         id=menu_news_Announcements
 
 *** Keywords ***
 

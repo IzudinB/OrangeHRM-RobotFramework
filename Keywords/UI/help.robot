@@ -2,12 +2,12 @@
 *** Settings ***
 
 Library                 ExtendedSelenium2Library
+Variables               ../../variables.py
 
 *** Variables ***
 
 ${BTN_HELP}             id=stickyHelpButton
 ${IN_SEARCH}            id=query
-${ENTER}                \\13
 
 *** Keywords ***
 
