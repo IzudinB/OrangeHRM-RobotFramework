@@ -1,0 +1,106 @@
+Precondition
+Login as admin or system administrator
+
+1   Verify existence of users page
+Click on admin item in menu
+Click on user management
+Click on users - Users page is shown.
+
+2   Verify existence of add button
+Add button is shown.
+
+3   Verify tooltip Add User
+Hover your mouse over the button Add User - Tooltip Add User is shown.
+
+4   Verify existence Add User popup
+Click on button Add User - Add User popup is shown.
+
+5  Verify existence of all elements on the Add User popup
+Add User title is shown.
+Employee Name label is shown.
+Input field for employee name is shown.
+Username label is shown.
+Input field for username is shown.
+ESS Role label is shown.
+Dropdown for choose ESS Role is shown.
+Supervisor Role label is shown.
+Dropdown for choose Supervisor Role is shown.
+Admin Role label is shown.
+Dropdown for choose Admin Role is shown.
+Status label is shown.
+Dropdown for choose Status is shown.
+Password label is shown.
+Input field for password is shown.
+Confirm password is shown.
+Input field Confirm Password is shown.
+"For a strong password, please use a hard to guess combination of text with upper and lower case characters, symbols and numbers" text is shown.
+"* Required field" text is shown.
+Button save is shown.
+Button cancel is shown.
+
+6   Verify save data on Add User popup
+Enter Employee Name (choose from auto complete)
+Enter username
+Choose ESS Role
+Choose Supervisor Role
+Choose Admin Role
+Choose Status
+Enter Password
+Enter Confirm Password - Passwords are match.
+Click on save button - Verify that all data is saved.
+
+7   Verify save data on Add User popup when passwords do not match
+Enter Employee Name (choose from auto complete)
+Enter username
+Choose ESS Role
+Choose Supervisor Role
+Choose Admin Role
+Choose Status
+Enter Password
+Enter different password for Confirm Password
+Click on save button - "Passwords do not match" message is shown.
+
+8   Verify click on save without enter any data
+Click on Add button
+Click on save - Messages for required fields are shown.
+
+9   Verify existence of button Edit
+Button Edit is shown.
+
+10  Verify tooltip Edit
+Hover your mouse over the button Edit - Tooltip Edit is shown.
+
+12   Verify that changes are possible
+Click on button Edit
+Change username or other fields
+Click Save - Changes are saved correctly.
+
+13  Verify that all elements on edit user popup exist
+Edit User title is shown.
+Employee Name label is shown.
+Input field for employee name is shown.
+Username label is shown.
+Input field for username is shown.
+ESS Role label is shown.
+Dropdown for choose ESS Role is shown.
+Supervisor Role label is shown.
+Dropdown for choose Supervisor Role is shown.
+Admin Role label is shown.
+Dropdown for choose Admin Role is shown.
+Status label is shown.
+Dropdown for choose Status is shown.
+Checkbox change password is shown.
+Password label is shown.
+Input field for password is shown.
+Confirm password is shown.
+Input field Confirm Password is shown.
+"For a strong password, please use a hard to guess combination of text with upper and lower case characters, symbols and numbers" text is shown.
+"* Required field" text is shown.
+Button save is shown.
+Button cancel is shown.
+
+14  Verify that change password fields are shown after checkbox is checked
+Select change password checkbox
+Enter new password
+Enter confirm password
+Click on save - Password is change is successfully
