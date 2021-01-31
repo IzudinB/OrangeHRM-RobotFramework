@@ -1,0 +1,29 @@
+Precondition
+Login as admin or system administrator
+Click on Admin
+Click on Nationalities
+
+1   Verify Add Nationality
+Click on Add button - modal add nationality is shown
+Enter Name
+Click on Save button - nationality is save successfully
+
+2   Verify existence of all elements on nationalities page
+Add button is shown
+Tooltip add nationality is shown when hover mouse over add button
+Table with Nationalities is shown
+
+3   Verify existence of all elements on add nationality modal
+Add Nationality title is shown
+Name is shown
+Input field name is shown
+*Required field text is shown
+Button save is shown
+Button cancel is shown
+
+4   Verify Edit Nationality
+Click on edit icon - modal edit nationality is shown
+Verify that name is field correctly
+Change name of nationality
+Click on save button
+Verify that changes are saved correctly

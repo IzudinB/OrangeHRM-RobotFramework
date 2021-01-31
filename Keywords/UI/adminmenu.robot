@@ -17,6 +17,9 @@ ${LNK_EDUCATION}            id=menu_admin_viewEducation
 ${LNK_LICENSES}             id=menu_admin_viewLicenses
 ${LANGUAGES}                id=menu_admin_viewLanguages
 ${MEMBERSHIPS}              id=menu_admin_membership
+${LNK_JOB}                  id=menu_admin_Job
+${LNK_JOB_TITLES}           id=menu_admin_viewJobTitleList
+${LNK_NATIONALITIES}        id=menu_admin_nationality
 
 *** Keywords ***
 
@@ -68,3 +71,17 @@ Navigate to Memberships
     click element       ${LNK_QUALIFICATIONS}
     click element       ${MEMBERSHIPS}
     wait until angular ready
+
+
+Navigate to Job Titles
+    [Documentation]     Navigate to Job Titles in Jobs in main menu.
+    click element       ${DD_ADMIN}
+    click element       ${LNK_JOB}
+    click element       ${LNK_JOB_TITLES}
+    wait until angular ready
+
+Navigate to Nationalities
+     [Documentation]     Navigate to Nationalities in main menu.
+     click element       ${DD_ADMIN}
+     click element       ${LNK_NATIONALITIES}
+     wait until angular ready

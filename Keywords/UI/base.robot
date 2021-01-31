@@ -49,8 +49,8 @@ Verify message in the field:
 Click on Add button
     click element       ${BTN_ADD}
 
-Click on Save button
+Modal Save
     click element       ${BTN_SAVE}
 
-Click on Cancel button
+Modal Cancel
     click element      ${BTN_CANCEL}
