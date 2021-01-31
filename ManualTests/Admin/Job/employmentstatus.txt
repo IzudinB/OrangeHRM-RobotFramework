@@ -1,0 +1,32 @@
+5_4 Manual test
+
+Precondition
+Login as admin or system administrator
+Click on Admin
+Click on Job
+Click on Employment Status
+
+1   Verify Add Employment Status
+Click on Add button - modal add employment status is shown
+Enter Name
+Click on Save button - employment status is save successfully
+
+2   Verify existence of all elements on Employment Status page
+Add button is shown
+Tooltip add employment status is shown when hover mouse over add button
+Table with employment status is shown
+
+3   Verify existence of all elements on add Employments Status modal
+Add employment status title is shown
+Name is shown
+Input field name is shown
+*Required field text is shown
+Button save is shown
+Button cancel is shown
+
+4   Verify Edit Employment Status
+Click on edit icon - modal edit employment status is shown
+Verify that name is filled correctly
+Change name of employment status
+Click on save button
+Verify that changes are saved correctly

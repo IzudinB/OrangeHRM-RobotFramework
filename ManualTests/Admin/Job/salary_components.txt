@@ -1,0 +1,41 @@
+5_2 Manual test
+
+Precondition
+Login as admin or system administrator
+Click on Admin
+Click on Job
+Click on Salary Components
+
+1   Verify Add Salary Component
+Click on add button - modal add salary component is shown
+Enter component name
+Select type
+Choose add to checkbox
+Choose value type checkbox
+Click on save button - component name is save successfully
+
+2   Verify existence of all elements on Salary components page
+Add button is shown
+Tooltip add salary component is shown when hover mouse over add button
+Table with salary components is shown
+
+3   Verify existence of all elements on add Salary Component modal
+Add salary component title is shown
+Name is shown
+Input field name is shown
+Select type is shown
+Choose add to checkbox is shown
+Choose value type checkbox is shown
+*Required field text is shown
+Button save is shown
+Button cancel is shown
+
+4   Verify Edit Salary Component
+Click on edit icon - modal edit salary component is shown
+Verify that name is filled correctly
+Change name of salary component
+Choose different type
+Choose different add to
+Choose value type
+Click on save button
+Verify that changes are saved correctly

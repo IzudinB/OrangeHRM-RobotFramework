@@ -23,6 +23,8 @@ ${LNK_NATIONALITIES}        id=menu_admin_nationality
 ${LNK_SALARY_COMPONENTS}    id=menu_admin_viewSalaryComponentList
 ${LNK_PAY_GRADES}           id=menu_admin_viewPayGrades
 ${LNK_EMPLOYMENT_STATUS}    id=menu_admin_employmentStatus
+${LNK_JOB_CATEGORIES}       id=menu_admin_jobCategory
+${LNK_WORK_SHIFTS}          id=menu_admin_workShift
 
 *** Keywords ***
 
@@ -108,4 +110,19 @@ Navigate to Employment Status
     click element       ${DD_ADMIN}
     click element       ${LNK_JOB}
     click element       ${LNK_EMPLOYMENT_STATUS}
+    wait until angular ready
+
+Navigate to Job Categories
+    [Documentation]     Navigate to Job Categories in Job in main menu.
+    click element       ${DD_ADMIN}
+    click element       ${LNK_JOB}
+    click element       ${LNK_JOB_CATEGORIES}
+    wait until angular ready
+
+
+Navigate to Work Shift
+    [Documentation]     Navigate to Work Shifts in Jobs in main menu.
+    click element       ${DD_ADMIN}
+    click element       ${LNK_JOB}
+    click element       ${LNK_WORK_SHIFTS}
     wait until angular ready

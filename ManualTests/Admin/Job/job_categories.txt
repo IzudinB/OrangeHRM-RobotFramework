@@ -1,0 +1,32 @@
+5_5 Manual test
+
+Precondition
+Login as admin or system administrator
+Click on Admin
+Click on Job
+Click on Job Categories
+
+1   Verify Add Job Categories
+Click on Add button - modal add job categories is shown
+Enter Name
+Click on Save button - job categories is save successfully
+
+2   Verify existence of all elements on Job Categories page
+Add button is shown
+Tooltip add job categories is shown when hover mouse over add button
+Table with job categories is shown
+
+3   Verify existence of all elements on add Job Categories modal
+Add job categories title is shown
+Name is shown
+Input field name is shown
+*Required field text is shown
+Button save is shown
+Button cancel is shown
+
+4   Verify Edit Job Categories
+Click on edit icon - modal edit job categories is shown
+Verify that name is filled correctly
+Change name of job categories
+Click on save button
+Verify that changes are saved correctly
