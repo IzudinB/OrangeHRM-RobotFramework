@@ -20,6 +20,9 @@ ${MEMBERSHIPS}              id=menu_admin_membership
 ${LNK_JOB}                  id=menu_admin_Job
 ${LNK_JOB_TITLES}           id=menu_admin_viewJobTitleList
 ${LNK_NATIONALITIES}        id=menu_admin_nationality
+${LNK_SALARY_COMPONENTS}    id=menu_admin_viewSalaryComponentList
+${LNK_PAY_GRADES}           id=menu_admin_viewPayGrades
+${LNK_EMPLOYMENT_STATUS}    id=menu_admin_employmentStatus
 
 *** Keywords ***
 
@@ -85,3 +88,24 @@ Navigate to Nationalities
      click element       ${DD_ADMIN}
      click element       ${LNK_NATIONALITIES}
      wait until angular ready
+
+Navigate to Salary Components
+    [Documentation]     Navigate to Salary Components in Job in main menu.
+    click element       ${DD_ADMIN}
+    click element       ${LNK_JOB}
+    click element       ${LNK_SALARY_COMPONENTS}
+    wait until angular ready
+
+Navigate to Pay Grades
+    [Documentation]     Navigate to Pay Grades in Job in main menu.
+    click element       ${DD_ADMIN}
+    click element       ${LNK_JOB}
+    click element       ${LNK_PAY_GRADES}
+    wait until angular ready
+
+Navigate to Employment Status
+    [Documentation]     Navigate to Employment Status in Job in main menu.
+    click element       ${DD_ADMIN}
+    click element       ${LNK_JOB}
+    click element       ${LNK_EMPLOYMENT_STATUS}
+    wait until angular ready

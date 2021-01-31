@@ -10,6 +10,9 @@ Force Tags                      Nationalities
 Suite Setup                     Open Browser to login page
 Suite Teardown                  Close browser
 
+*** Variables ***
+${NATIONALITY}=     aaaaaaaaaaa
+
 *** Test Cases ***
 
 Verify Add Nationality
@@ -17,8 +20,16 @@ Verify Add Nationality
     [Documentation]             Verify add nationaity.
     [Setup]     run keywords    Login:
     ...         AND             Navigate to Nationalities
-    ${NATIONALITY}              generate random string
     Add Nationality:            ${NATIONALITY}
     ${MSG}                      Get toast message
     should be equal             ${MSG}     ${MSG_SUCCESSFULLY_SAVED}
+    [Teardown]                  Logout
+
+Verify Edit Nationality
+    [Tags]                      Edit Nationalities
+    [Setup]     run keywords    Login:
+    ...         AND             Navigate to Nationalities
+    Edit Nationalities:         cccccccccc     ${NATIONALITY}
+    ${MSG}                      Get toast message
+    should be equal             ${MSG}     ${MSG_SUCCESSFULLY_UPDATED}
     [Teardown]                  Logout
