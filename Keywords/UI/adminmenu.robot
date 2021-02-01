@@ -29,6 +29,7 @@ ${DD_ORGANIZATION}          id=menu_admin_Organization
 ${LNK_LOCATIONS}            id=menu_admin_viewLocations
 ${LNK_NEWS}                 id=menu_news_viewNewsList
 ${DD_ANNOUNCEMENTS}         id=menu_news_Announcements
+${LNK_STRUCTURE}            id=menu_admin_viewCompanyStructure
 
 *** Keywords ***
 
@@ -143,4 +144,11 @@ Navigate to News
     click element       ${DD_ADMIN}
     click element       ${DD_ANNOUNCEMENTS}
     click element       ${LNK_NEWS}
+    wait until angular ready
+
+Navigate to Structure
+    [Documentation]     Navigate to Structure in main menu.
+    click element       ${DD_ADMIN}
+    click element       ${DD_ORGANIZATION}
+    click element       ${LNK_STRUCTURE}
     wait until angular ready
