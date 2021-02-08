@@ -1,45 +1,62 @@
 *** Settings ***
-Library     ExtendedSelenium2Library
-Variables   ../../variables.py
+
+Library                         ExtendedSelenium2Library
+Library                         String
+
+Variables                       ../../variables.py
 
 *** Variables ***
 ${DD_USER}                      id=user-dropdown
 ${MNU_LOGOUT}                   id=logoutLink
+${INPUT_USERNAME}               id=txtUsername
+${INPUT_PASSWORD}               id=txtPassword
 ${BTN_LOGIN}=                   id=btnLogin
-${IN_USERNAME}                  id=txtUsername
-${IN_PASSWORD}                  id=txtPassword
-${BTN_ADD}                      css=.fixed-action-btn
-${BTN_SAVE_MODAL}               css=.primary-btn
-${BTN_CANCEL}                   css=[ng-click="modal.cancel()"]
 ${TOAST_MSG}=                   css=.toast-message
+${FLOATING_MSG}                 css=.top.fade.tooltip.in
+${MODAL_TITLE}=                 css=.modal.open h4
+${BTN_ADD}                      css=.fixed-action-btn
+${BTN_SAVE}                     css=.primary-btn
+${BTN_CANCEL}                   css=[ng-click="modal.cancel()"]
 ${BTN_NEXT}                     id=nextBtn
-${BTN_BACK}                     //a[text()='Back']
-${BTN_SAVE}                     css=.saveDocument
-${BTN_PUBLISH}                  css=.publish-btn
+${BTN_PUBLISH}                  xpath=//button[text()='Publish']
+${IN_NAME}                      id=name
+${IN_DESCRIPTION}               id=description
+${BTN_ADD_MORE}                 id=addItemBtn
+${BTN_SAVE_MORE}                id=saveVendor
 
 *** Keywords ***
 
 Open Browser to login page
-    [Documentation]    Opens browser to login page
-    open browser    ${URL}  browser=${BROWSER}
+    [Documentation]             Opens browser to login page
+    open browser    ${URL}      browser=${BROWSER}
     maximize browser window
+
+Input username:
+    [Documentation]  Unosi username u polje za username
+    [Arguments]                 ${_USERNAME_}
+    input text                  ${INPUT_USERNAME}   ${_USERNAME_}
+
+Input password:
+    [Documentation]  Unesi password u polje za password
+    [Arguments]                 ${_PASSWORD_}
+    input text                  ${INPUT_PASSWORD}   ${_PASSWORD_}
+
+Login:
+    [Documentation]  Unesi username i password
+    [Arguments]                 ${_USERNAME_}=admin   ${_PASSWORD_}=admin123
+    Input username:             ${_USERNAME_}
+    Input password:             ${_PASSWORD_}
+    click button                ${btn_login}
 
 Logout
     [Documentation]  Logout the user
     click element  ${DD_USER}
     click element  ${MNU_LOGOUT}
 
-Login:
-    [Documentation]             Enter username and password
-    [Arguments]                 ${USERNAME}=admin          ${PASSWORD}=admin123
-    input text                  ${IN_USERNAME}             ${USERNAME}
-    input text                  ${IN_PASSWORD}             ${PASSWORD}
-    click button                ${BTN_LOGIN}
-
 Get toast message
     [Documentation]  Returns toast message text
-    element should be visible   ${TOAST_MSG}
-    ${MSG}=   get text          ${TOAST_MSG}
+    element should be visible   ${TOAST_MSG_}
+    ${MSG}=   get text          ${TOAST_MSG_}
     [Return]   ${MSG}
 
 Verify message in the field:
@@ -49,32 +66,85 @@ Verify message in the field:
     ${MESSAGE_} =   get text    ${FIELD_}
     should be equal  ${MESSAGE_}    ${EXPCTD_MESSAGE_}
 
-### Modal keywords
+Get modal title
+    [Documentation]    Returns modal title
+    ${TITLE}=          get text  ${MODAL_TITLE}
+    [Return]           ${TITLE}
+
+Get help block text:
+    [Arguments]        ${filed_label}
+#    ${TXT}=           get text  xpath=//label[text()="${filed_label}"]/../span[@class="help-block"]
+    ${TXT}=            get text  xpath=//*[@class='help-block']/../label[text()='${filed_label}']
+    [Return]           ${TXT}
+
+Get help Education:
+    [Arguments]        ${filed_lavel}
+    ${TXT}=            get text   //label[text()='Level of Education']//following-sibling::span[1]
+    [Return]           ${TXT}
+
+Get help Nataionalities:
+    [Arguments]        ${filed_lavel}
+    ${TXT}=            get text   xpath=//label[text()='Name']//following-sibling::span[1]
+    [Return]           ${TXT}
+
 Click on Add button
-    click element       ${BTN_ADD}
+   click element      ${BTN_ADD}
 
 Modal Save
-    click element       ${BTN_SAVE_MODAL}
+    click element      ${BTN_SAVE}
 
 Modal Cancel
     click element      ${BTN_CANCEL}
 
-Click on Next button
+Modal Back
+    click element
+
+Modal Next
     click element      ${BTN_NEXT}
 
-Click on Back button
-    click element      ${BTN_BACK}
-
-Click on Save button
-    click element      ${BTN_SAVE}
-
-Click on Publish button
+Modal Publish
     click element      ${BTN_PUBLISH}
 
-Choose multiple items in autocomplete:
-    [Documentation]    Choose multiple items in autocomplete.
-    [Arguments]        ${LOCATOR}                  @{ITEMS}
-    FOR  ${ELEMENT}    IN    @{ITEMS}
-         input text    ${LOCATOR}                  ${ELEMENT}
-         press key     ${LOCATOR}                  ${ENTER}
+Is checkbox checked:
+    [Arguments]  ${checkbox_id}
+    [Documentation]  Check if checkbox with provided id checked.
+    ${is_checked}=  execute javascript with replaced variables      return document.getElementById('${checkbox_id}').checked
+    [Return]  ${is_checked}
+
+Check checkbox:
+    [Arguments]  ${checkbox_id}   ${bool_select}
+    [Documentation]  Select/unselect checkbox by id.     #standard keywords select/unselect doesn't work in some cases so we introduced this one.
+    ${selected}=    Is checkbox checked:  ${checkbox_id}
+    run keyword if  ${bool_select}  select checkbox  id=${checkbox_id}
+    ...  ELSE   run keyword if  ${selected}  click element  xpath=//label[@for='${checkbox_id}']
+
+Select from list:
+    [Arguments]             ${ID}  @{LIST}
+    FOR  ${element}  IN     @{LIST}
+       input text           ${ID}  ${element}
+       press key            ${ID}  Keys.ENTER
     END
+
+Click on Add button - More
+    click element           ${BTN_ADD_MORE}
+
+Modal Save - More
+    click element           ${BTN_SAVE_MORE}
+
+Navigate to:
+      [Documentation]       Navigates to items in the list.
+      [Arguments]           @{MENU_LIST}
+      FOR    ${ELEMENT}     IN      @{MENU_LIST}
+      click element         ${ELEMENT}
+      END
+      wait until angular ready
+
+Generate random email
+    [Documentation]     Generates random email.
+    ${RANDOM}=           generate random string
+    [Return]            ${RANDOM}@gmail.comc
+
+Generate random website
+    [Documentation]     Generates random website.
+    ${RANDOM}=           generate random string
+    [Return]            http://www.${RANDOM}.com
