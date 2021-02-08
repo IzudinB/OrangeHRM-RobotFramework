@@ -30,6 +30,9 @@ ${LNK_LOCATIONS}            id=menu_admin_viewLocations
 ${LNK_NEWS}                 id=menu_news_viewNewsList
 ${DD_ANNOUNCEMENTS}         id=menu_news_Announcements
 ${LNK_STRUCTURE}            id=menu_admin_viewCompanyStructure
+${LNK_COST_CENTERS}         id=menu_admin_viewCostCentreList
+${DD_COMPETENCIES}          id=menu_admin_Competencies
+${LNK_COMPETENCY_LIST}      id=menu_admin_getEmployeeCompetencyList
 
 *** Keywords ***
 
@@ -152,3 +155,17 @@ Navigate to Structure
     click element       ${DD_ORGANIZATION}
     click element       ${LNK_STRUCTURE}
     wait until angular ready
+
+Navigate to Cost Centers
+    [Documentation]           Navigate to Cost Centers in main menu
+    click element       ${DD_ADMIN}
+    click element       ${DD_ORGANIZATION}
+    click element       ${LNK_COST_CENTERS}
+    wait until angular ready
+
+Navigate to Competency List
+    [Documentation]           Navigate to Competency List in main menu
+        click element       ${DD_ADMIN}
+        click element       ${DD_COMPETENCIES}
+        click element       ${LNK_COMPETENCY_LIST}
+        wait until angular ready
